@@ -15,23 +15,32 @@ class Sound:
         self.dic_notes = dic_notes
         self.data = None
         """Le paso el diccionario"""
-
+    
+    """Si lo uso para el play, está de más"""
     def g_frequency(self,note,octave):
         expo = (octave - 4) * 12 + (note - 10)
         """Note = Nota"""
         """Me dirá que tan fuerte se tiene que escuchar el sonido"""
         return 440 * ((2**(1/12))** expo)
 
-    def create_data (self,frequency,time,framerate=44400):
-        t = np.linspace(0,time/3000,int(framerate*time/3000))
+    def create_data (self,frequency,time,framerate:int):
+        """framerate=44100"""
+        t = np.linspace(0,time/1,int(time*framerate))
         wave = np.sin(2*np.pi * frequency * t)
         self.data = wave
         return self.data
     
-    def play(self,frequency,time,framerate=44100):
-        #44100
-        """Es la que reproducirá el sonido"""
-        t = np.linspace(0,time/3000,int(framerate*time/3000))
+    def play(self,frequency,time:int,framerate:int):
+        """
+        Función que reproducirá el sonido
+        Frequency -> La frecuencia de la nota que lo voy a pasar
+        time -> El tiempo de la nota (medido en segundos)
+        framerate -> Frecuencia de mostreo (por ahora 44100)
+        """
+        t = np.linspace(0,time/3,int(0.3*framerate))
+        #t = np.linspace(0,1000/3000,int(framerate*1000/3000))
+        print(t)
+        """int(framerate*time/3000)"""
         wave = np.sin(2*np.pi * frequency * t)
         #plt.plot(wave[:1000], color = 'k', label = 'Frecuencia de notas hz')
         #plt.title('Simulacro de notas')
@@ -49,7 +58,8 @@ class Sound:
         threads = []
         for note in chord:
             freq = self.g_frequency(note,4)
-            th = threading.Thread(target=lambda:self.play(freq,1000))
+            th = threading.Thread(target=lambda:self.play(freq,
+            1,44100))
             th.start()
             threads.append(th)
     
@@ -86,8 +96,8 @@ if __name__=="__main__":
     frames = []
     for note in notes:
         print(note)
-        sonido = clas_c.play(note,1000)
-        onda = clas_c.create_data(note,1000)
+        sonido = clas_c.play(note,1,44100)
+        onda = clas_c.create_data(note,1,44100)
         frames.append(onda)
     print(frames)
     
@@ -104,11 +114,9 @@ if __name__=="__main__":
     
     pa = pyaudio.PyAudio()   
   
-    print('Recording...') 
-  
     pa.terminate() 
 
-    print('Done !!! ') 
+    print('Terminó') 
   
     sf = wave.open(filename, 'wb') 
     sf.setnchannels(chanels) 
