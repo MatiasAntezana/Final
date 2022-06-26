@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import threading 
 #hará que me reproduzca dos notas al mismo tiempo
-import pyaudio
-import wave 
+#import pyaudio
+#import wave
+from scipy.io import wavfile
 from notes import dic_notes
 
 """El sounddivice me permitira reproducir una onda sonora"""
@@ -96,43 +97,13 @@ if __name__=="__main__":
     frames = []
     for note in notes:
         print(note)
-        sonido = clas_c.play(note,1,44100)
+        #sonido = clas_c.play(note,1,44100) #Hara que suene el sonido
         onda = clas_c.create_data(note,1,44100)
         frames.append(onda)
+    frames = np.concatenate(frames)
     print(frames)
-    
-    hunk = 1024  
-    
-    chunk = 1024  
+    sr = 44100
+    wavfile.write("audio.wav",sr,frames)  
+    print('Terminó')
   
-    sample_format = pyaudio.paInt16   
-    chanels = 2
-  
-    smpl_rt = 44100 #44400
-    #seconds = 4
-    filename = "audio.wav"
     
-    pa = pyaudio.PyAudio()   
-  
-    pa.terminate() 
-
-    print('Terminó') 
-  
-    sf = wave.open(filename, 'wb') 
-    sf.setnchannels(chanels) 
-    sf.setsampwidth(pa.get_sample_size(sample_format)) 
-    sf.setframerate(smpl_rt) 
-    sf.writeframes(b''.join(frames)) 
-    sf.close()
-    
-
-
-
-
-
-
-
-
-
-
-
