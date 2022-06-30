@@ -19,20 +19,15 @@ stream = pa.open(format=sample_format, channels=chanels,
   
 print('Recording...') 
   
-frames = []   
+frames = []
   
-for i in range(0, int(smpl_rt / chunk * seconds)): 
-    data = stream.read(chunk) 
-    frames.append(data) 
-
 stream.stop_stream() 
 stream.close() 
   
 pa.terminate() 
 
 print('Done !!! ') 
-print(frames)
-"""Creo que esto de abajo me permitirá guardarlo en un archivo wave"""
+  
 sf = wave.open(filename, 'wb') 
 sf.setnchannels(chanels) 
 sf.setsampwidth(pa.get_sample_size(sample_format)) 
