@@ -28,7 +28,7 @@ $ git clone https://github.com/MatiasAntezana/Final.git
    Also you can use:
    
    python setup.py install
-***
+
 --------------------------------
 
 ## Running the program
