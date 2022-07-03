@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-sps=50
+sps=2000
 freq_hz=440.0
 duration_s=1
 

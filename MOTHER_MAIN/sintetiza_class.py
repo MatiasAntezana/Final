@@ -50,7 +50,7 @@ class Sound:
         Return:
             self.data -> Devuelve la nota en forma de lista
             framerate=44100
-        """
+        """ 
         t = np.linspace(0,time,int(time*framerate))
         wave = np.sin(2*np.pi * frequency * t)
         #resultado = combo(wave,t,time,t0)
