@@ -4,7 +4,7 @@ import numpy as np
 #import pyaudio
 #import wave
 from scipy.io import wavfile
-from sintetiza_class import Sound
+from prueba import Sound
 
 def music_debussy(filename):
     """
@@ -23,11 +23,9 @@ def music_debussy(filename):
             list_2 = tuple(list_2)
             list_1.append(list_2)
         list_notes = []
-        list_time = []
         for one,two,three in list_1:
             list_notes.append(two)
-            list_time.append(three)
-        return list_notes,list_time
+        return list_notes
     
 def create_wave_file(sound):
     """
@@ -41,7 +39,9 @@ def create_wave_file(sound):
     sr = 44100
     wavfile.write("audio.wav",sr,frames)
     
-def menu():
+def menu(): 
+    """_summary_
+    """
     clas_c = Sound()
     #note_A0 = clas_c.dic_notes["A0"]
     #note_A4 = clas_c.dic_notes["A4"]
@@ -50,6 +50,18 @@ def menu():
     #lista = [note_A0,note_A4,note_C2]
     #clas_c.play_chord(lista)
     lista = music_debussy("debussy_note.txt")
-    print(lista)
+    notes = []
+    for i in lista:
+        note_music = clas_c.dic_notes[i]
+        notes.append(note_music)
+    frames = []
+    for note in notes:
+        sonido = clas_c.play(note,1,44100) #Hara que suene el sonido
+        onda = clas_c.create_data(note,1,44100)
+        frames.append(onda)
 
-menu()
+    create_wave_file(frames)
+    print('Terminó')
+
+if __name__=="__main__":
+    menu()
