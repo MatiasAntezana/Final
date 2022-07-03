@@ -3,25 +3,15 @@ import numpy as np
 #hará que me reproduzca dos notas al mismo tiempo
 import argparse #Para poder ejecutar el código en consola 
 import sys #Para que pueda salir del sistema
-#import pyaudio
-#import wave
-from scipy.io import wavfile
 from sintetiza_class import Sound
-from read_score import music_debussy
-
-def create_wave_file(sound,audio):
-    """
-    Crea el archivo wave con la señal de la nota.
-    Parametros:
-    ----------
-        sound -> Lista de vectores con los sonidos de las teclas
-    """
-    frames = np.concatenate(sound)
-    #Concatena los vectores
-    sr = 44100 #Este dependerá del instrumento o no? ¿es fijo para todos?
-    wavfile.write(audio,sr,frames)
+from read_score import music_debussy,organization
+from wave_creator import create_wave_file
 
 def main ():
+    """
+    Function that recreates the argparse to be able to execute the program through the system console.
+
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument("--frequency",type=int,default=44100,help="Elige una frecuencia de mostreo")
     parser.add_argument("--score",type=str,default="debussy_note.txt",help="Escriba una partitura")
@@ -35,15 +25,20 @@ def menu(args):
 
     Parameters:
     ----------
-        frequency -> Frecuencia de mostreo
+        frequency:int -> Sampling frequency
         instrument -> Instrumento #falta
-        score -> La partitura
+        score:txt -> The sheet music
     """
     clas_c = Sound()
-    list_p = music_debussy(args.score)
-    list_1 = list_p[0]
-    list_2 = list_p[1]
-    list_3 = list_p[2]
+    #list_p = music_debussy(args.score)
+    #list_1 = list_p[0]
+    #list_2 = list_p[1]
+    #list_3 = list_p[2]
+    #list_4 = list_p[3]
+    list_org = organization(args.score)
+    list_1 = list_org[0]
+    list_2 = list_org[1]
+    list_3 = list_org[2]
     notes = []
     for i in list_1:
         note_music = clas_c.dic_notes[i]
@@ -51,14 +46,11 @@ def menu(args):
     frames = []
     num = 0
     for note in notes:
-        #print(note)
         #sonido = clas_c.play(note,1,44100) #Hara que suene el sonido
         onda = clas_c.create_data(note,float(list_2[num]),float(list_3[num]),args.frequency)
         num += 1
         frames.append(onda)
-    #print(frames)
     create_wave_file(frames,args.audio)
-    #print(frames)
     return "Fin"
 
 """python menu.py --frequency=44100 --score=debussy_note.txt --audio=au.wav"""
