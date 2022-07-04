@@ -12,6 +12,7 @@ setup(
             "matplotlib>=3.5.2" ,
             "sounddevice>=0.4.4" ,
             "scipy>=1.8.1",
+            "argparse>=1.4.0"
     ] 
 )
 

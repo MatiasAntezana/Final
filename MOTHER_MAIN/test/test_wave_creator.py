@@ -6,6 +6,48 @@ from wave_creator import create_wave_file
 
 class Test_create_wave_file(unittest.TestCase):
 
+    """
+    Class to test the create_wave_file function from wave_creator.py.
+
+    ...
+    
+    Atributtes
+    ----------
+        none
+    
+    Methods
+    -------
+        test_array_type():
+            Test if the frames are an array type object.
+
+
+        test_frames__type():
+             Test if the frames are a dict type object. 
+
+
+        test_frames__type2():
+            Test if the frames are an int type object.
+
+
+        test_frames__type3():
+            Test if the frames are an string type object.
+
+
+        test_sampling_rate():
+            Test sampling rate are 0 or a negative number.
+
+
+        test_sampling_rate_type():
+            Test sampling rate type are a string type object.
+
+
+        test_sampling_rate_type2():
+            Test sampling rate type 2 are a none type object.
+
+
+
+    """
+
     def test_array_type(self):
         """ 
         Test if the frames are an array type object

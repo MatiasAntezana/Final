@@ -6,18 +6,94 @@ import numpy as np
 from menu import main, menu
 
 class TestMain(unittest.TestCase):
-        
+    """
+    Class to test the main function from menu.
+
+    ...
+
+    Attributes
+    ----------
+        none
+
+
+    Methods
+    -------
+    test_main():
+
+    """
     def test_main(self):
-        args=type(Namespace)
-        self.asserrRaises(TypeError, main, args)
+        args=type(Namespace) #funciona?
+        self.assertRaises(TypeError, main, args)
 
 
 
 
 class Test_Menu(unittest.TestCase):
+    """ 
+    Class to test the menu function from menu.py.
+
+    ...
+
+    Attributes
+    ----------
+        none
+
+    Methods
+    -------
+        test_class():
+            test if class_c is a function.
+
+        test_class2():
+            test if class_C is an int type.
+
+        test_class3():
+            test if class_C is a string type.
+
+        test_class4():
+            test if class_C is a list type.
+
+        test_class5():
+            test if class_C is an array type.
+
+        test_list_1_int():
+            test if list_1 of notes is an int type.
+
+        test_list_1_str():
+            test if list_1 of notes is an string type.
+
+        test_list_2_str():
+            test if list_2 of initial time is
+            an string type.
+
+        test_list_2_int():
+            test if list_2 of initial time is
+            an int type.
+
+        test_list_3_int():
+            Test if list_3 of duration time is an int type.
+
+        test_list_3_str():
+             Test if list_3 of duration time is an str type.
+
+        test_equal_list():
+             Check if list_1 of notes and list_2 of initial time
+            are equal.
+
+        test_equal_list2():
+             Check if list_2 of inital time and list_3 of duration time
+            are the same list.
+
+        list_notes_int():
+             Test if list_notes is an int type.
+
+        list_notes_str():
+             Test if list_notes is an string type.
+
+
+    """
  
 
-    def test_class(self):
+    def test_class(self):# no se si existe
         """
         test if class_c is a function .
         """
@@ -56,7 +132,6 @@ class Test_Menu(unittest.TestCase):
 
 
 
-
     def test_list_1_int(self): #notes
         """ 
         test if list_1 of notes is an int type.
@@ -82,7 +157,7 @@ class Test_Menu(unittest.TestCase):
         list_2="python"
         self.assertRaises(TypeError, menu, list_2)
 
-    def test_list_2_str(self): #initial times
+    def test_list_2_int(self): #initial times
         """ 
         test if list_2 of initial time is
          an int type.
@@ -91,7 +166,7 @@ class Test_Menu(unittest.TestCase):
         self.assertRaises(TypeError, menu, list_2)
 
 
-    def test_list_3(self):# duration times
+    def test_list_3_int(self):# duration times
         """
         Test if list_3 of duration time is an int type.
 
@@ -117,7 +192,7 @@ class Test_Menu(unittest.TestCase):
         list_2=[1.0,2.2,0.62]
         self.assertNotAlmostEqual(list_1, list_2,"list can't be equal")
     
-    def test_equal_list(self):
+    def test_equal_list2(self):
         """
         Check if list_2 of inital time and list_3 of duration time
         are the same list.
