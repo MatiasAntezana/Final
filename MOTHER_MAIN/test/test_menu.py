@@ -115,7 +115,7 @@ class Test_Menu(unittest.TestCase):
 
         list_1=["A4","B5","C3"]
         list_2=[1.0,2.2,0.62]
-        self.assertListEqual(list_1, list_2,"list can't be equal")
+        self.assertNotAlmostEqual(list_1, list_2,"list can't be equal")
     
     def test_equal_list(self):
         """
@@ -124,7 +124,7 @@ class Test_Menu(unittest.TestCase):
         """
         list_2=[1.0,1.65,0.9]
         list_3=[2.23,0.78,1.75]
-        self.assertListEqual(list_2,list_3,"List can't be equal")
+        self.assertNotAlmostEqual(list_2,list_3,"List can't be equal")
 
     def list_notes_int(self):
         """
