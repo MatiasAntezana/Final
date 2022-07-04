@@ -13,9 +13,9 @@ def main ():
 
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("--frequency",type=int,default=44100,help="Elige una frecuencia de mostreo")
-    parser.add_argument("--score",type=str,default="debussy_note.txt",help="Escriba una partitura")
-    parser.add_argument("--audio",type=str,default="audio.wav",help="Escriba un nombre para el archivo wave")
+    parser.add_argument("-f",type=int,default=44100,help="Elige una frecuencia de mostreo")
+    parser.add_argument("-s",default="debussy_note.txt",help="Escriba una partitura")
+    parser.add_argument("-a",default="audio.wav",help="Escriba un nombre para el archivo wave")
     args = parser.parse_args()
     sys.stdout.write(str(menu(args)))
 
@@ -35,7 +35,7 @@ def menu(args):
     #list_2 = list_p[1]
     #list_3 = list_p[2]
     #list_4 = list_p[3]
-    list_org = organization(args.score)
+    list_org = organization(args.s)
     list_1 = list_org[0]
     list_2 = list_org[1]
     list_3 = list_org[2]
@@ -47,10 +47,10 @@ def menu(args):
     num = 0
     for note in notes:
         #sonido = clas_c.play(note,1,44100) #Hara que suene el sonido
-        onda = clas_c.create_data(note,float(list_2[num]),float(list_3[num]),args.frequency)
+        onda = clas_c.create_data(note,float(list_2[num]),float(list_3[num]),args.f)
         num += 1
         frames.append(onda)
-    create_wave_file(frames,args.audio)
+    create_wave_file(frames,args.a)
     return "Fin"
 
 """python menu.py --frequency=44100 --score=debussy_note.txt --audio=au.wav"""

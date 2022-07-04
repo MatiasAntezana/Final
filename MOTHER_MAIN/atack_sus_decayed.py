@@ -60,7 +60,6 @@ def m_t(t,ta,td):
         #print(mt)
     else:
         mt = 0.7
-    print(type(mt))
     return mt
 
 def recor (t,conta):
