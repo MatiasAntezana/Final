@@ -3,7 +3,7 @@
 This repository contains a Python packgage that allows reading a musical score and synthetize the musical notes in diferent envelope shapes from the use of diferents mathematicals functions and sound modulalization or configuration of musical instruments. This creates a WAVE file that can be reproduced with some music player. 
 Also it can be used a musical score and send notes to play on a real intrument, a robotic xilophone that receives the notes from the program and can play the music.  
 
-***
+
 --------------------------------
 
 ## Installation
@@ -56,5 +56,5 @@ To run the program you need to run the following command:
 
 To run the python tests from the packgage you can use the following command
 
-nosetests (corre todos los tests) #puede ser que no haga falta 
+nosetests (corre todos los tests) 
 
