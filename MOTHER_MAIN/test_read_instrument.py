@@ -1,19 +1,36 @@
-from fileinput import filename
-from unicodedata import name
+
 import unittest
 from read_instrument import *
 
 
 class test_read_instrument(unittest.TestCase):
+    """
+    A class to test read_instru function from read_instrument file.
+    
+    ...
+    
+    Atributtes
+    ----------
+        None
+    
+    Methods
+    --------
+        test_read_instrument():
+            Test to try open a txt file name error.
+
+    """
+
 
     def test_read_instrument(self):
-        try:
-            with open("test_read_instru.txt","r") as mem:
-                for line in mem:
-                    line = line.strip()
-                    line = int(line)
-        except:
-            self.assertRaises(ValueError, read_instru(filename))
+                """
+                Test to try open a txt file name error. 
+                """
+                try:
+                        with open("test_read_instru.txt") as file:
+                                read_data=file.read()
+                                return read_data
+                except:
+                        self.assertRaises(NameError,read_instru("test_read_instru.txt"))
 
 if __name__ == "__main__":
     unittest.main()
