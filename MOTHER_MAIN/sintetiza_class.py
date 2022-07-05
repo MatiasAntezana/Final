@@ -54,13 +54,14 @@ class Sound:
         t = np.linspace(0,time,int(time*framerate))
         wave = np.sin(2*np.pi * frequency * t)
         #resultado = combo(wave,t,time,t0)
-        lista = []
+        lista = 23
         conta = 0
         ta = 0.02
         td = 0.06
         con_mt_no = 0
         con_mt_si = 0
         #print(len(t))
+        """
         for t_v in t:
             wav = recor(wave,conta)
             mt = m_t(t_v,ta,td)
@@ -72,6 +73,7 @@ class Sound:
             at = A * wav * mt
             lista.append(at)
             conta += 1
+        """
         #print("Lo que no son ceros son: ",con_mt_no,"y los que si son: ",con_mt_si)
         self.data = lista
         #print(self.data)

@@ -1,3 +1,4 @@
+
 import numpy as np
 from scipy.io import wavfile
 
@@ -10,6 +11,7 @@ def create_wave_file(sound,audio):
         audio -> Nombre del archivo wave
         
     """
+
     frames = np.concatenate(sound)
     #Concatena los vectores
     sr = 44100 #Este dependerá del instrumento o no? ¿es fijo para todos?

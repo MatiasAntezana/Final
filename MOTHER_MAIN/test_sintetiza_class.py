@@ -1,7 +1,7 @@
 
 
 import unittest 
-from sintetiza_class import Sound,create_data
+from sintetiza_class import Sound
 
 
 class Sintetizaclass(unittest.TestCase):
@@ -27,12 +27,6 @@ class Sintetizaclass(unittest.TestCase):
         test_create_list_None():
             Check if lista is a None type.
 
-        test_framerate_type():
-            Check if framerate is an string type.
-
-        test_framerate_type2():
-            Check if framerate is a None type.
-
 
 
     """
@@ -42,40 +36,21 @@ class Sintetizaclass(unittest.TestCase):
         Check if lista is an int type.
         """
         lista=440
-        self.assertRaises(TypeError,create_data,lista)
+        self.assertRaises(TypeError,Sound.create_data,lista)
 
     def test_create_list_str(self):
         """
         Check if lista is a string type.
         """
         lista="syntethizer"
-        self.assertRaises(TypeError,create_data,lista)
+        self.assertRaises(TypeError,Sound.create_data,lista)
 
     def test_create_list_None(self):
         """
         Check if lista is a None type.
         """
         lista=None
-        self.assertRaises(TypeError,create_data,lista)
-
-
-    def test_framerate_type(self):
-        """
-        Check if framerate is an string type.
-        
-        """
-        framerate="44100"
-        self.assertRaises(TypeError,create_data,framerate)
-
-    def test_framerate_type2(self):
-        """
-        Check if framerate is a None type.
-        """
-        framerate=None
-        self.assertRaises(TypeError,create_data,framerate)
-
-
-
+        self.assertRaises(TypeError,Sound.create_data,lista)
 
 
 

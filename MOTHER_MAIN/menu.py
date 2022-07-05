@@ -13,7 +13,7 @@ def main ():
 
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("--frequency",type=int,default=44100,help="Elige una frecuencia de mostreo")
+    parser.add_argument("--frequency",type=int,default=44100,help="Elige una frecuencia de muestreo")
     parser.add_argument("--score",type=str,default="debussy_note.txt",help="Escriba una partitura")
     parser.add_argument("--audio",type=str,default="audio.wav",help="Escriba un nombre para el archivo wave")
     args = parser.parse_args()
