@@ -4,8 +4,10 @@ import numpy as np
 import argparse #Para poder ejecutar el código en consola 
 import sys #Para que pueda salir del sistema
 from sintetiza_class import Sound
-from read_score import music_debussy,organization
+from read_score import organization
 from wave_creator import create_wave_file
+from FOLDER_MIDI.prueba import hola
+print(hola())
 
 def main ():
     """
@@ -22,7 +24,6 @@ def main ():
 def menu(args):
     """ # Falta instrumento
     Main function with which the program will run, including the synthesizer.
-
     Parameters:
     ----------
         frequency:int -> Sampling frequency

@@ -1,5 +1,5 @@
 #from matplotlib import table
-from atack_sus_decayed import recor,m_t
+from atack_sus_decayed import recor,m_t,funcion
 import sounddevice as sd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -51,16 +51,21 @@ class Sound:
             self.data -> Devuelve la nota en forma de lista
             framerate=44100
         """
-        t = np.linspace(0,time,int(time*framerate))
-        wave = np.sin(2*np.pi * frequency * t)
+        td = 0.06
+        t = np.linspace(0,time +td ,int((time+td)*framerate))
+        lista_2 = [0,1,0.72727272,0.31818181,0.090909]
+        i = 0
+        for e in range (1,5):
+            i = i + e * np.sin(2*np.pi * frequency * lista_2[e] * t)
         #resultado = combo(wave,t,time,t0)
         lista = []
         conta = 0
         ta = 0.02
-        td = 0.06
         con_mt_no = 0
         con_mt_si = 0
+        result = funcion(t,i,ta,td)
         #print(len(t))
+        """
         for t_v in t:
             wav = recor(wave,conta)
             mt = m_t(t_v,ta,td)
@@ -72,8 +77,10 @@ class Sound:
             at = A * wav * mt
             lista.append(at)
             conta += 1
+        """
         #print("Lo que no son ceros son: ",con_mt_no,"y los que si son: ",con_mt_si)
-        self.data = lista
+        self.data = result
+
         #print(self.data)
         """
         Tengo que crear 2 funciones nuevas con el sostenido y el dacaeimiento para que me devuelvan una lista con los valores aplicandoles la función correspondiente de ataque, sostenido y bajada.
