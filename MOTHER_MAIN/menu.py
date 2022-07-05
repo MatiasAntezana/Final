@@ -7,17 +7,18 @@ from sintetiza_class import Sound
 from read_score import organization
 from wave_creator import create_wave_file
 from FOLDER_MIDI.prueba import hola
+from read_instrument import read_instru
 print(hola())
 
 def main ():
     """
     Function that recreates the argparse to be able to execute the program through the system console.
-
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("-f",type=int,default=44100,help="Elige una frecuencia de mostreo")
-    parser.add_argument("-s",default="debussy_note.txt",help="Escriba una partitura")
-    parser.add_argument("-a",default="audio.wav",help="Escriba un nombre para el archivo wave")
+    parser.add_argument("-f",type=int,default=48000,help="Choose a sample rate")
+    parser.add_argument("-i",default="piano.txt",help="Choose a sample rate")
+    parser.add_argument("-s",default="debussy_note.txt",help="Write a sheet music")
+    parser.add_argument("-a",default="audio_new.wav",help="Type a name for the wave file")
     args = parser.parse_args()
     sys.stdout.write(str(menu(args)))
 
@@ -28,14 +29,17 @@ def menu(args):
     ----------
         frequency:int -> Sampling frequency
         instrument -> Instrumento #falta
-        score:txt -> The sheet music
+
     """
-    clas_c = Sound()
-    #list_p = music_debussy(args.score)
-    #list_1 = list_p[0]
-    #list_2 = list_p[1]
-    #list_3 = list_p[2]
-    #list_4 = list_p[3]
+    result = read_instru(args.i)
+    #print(result)
+    list_number_harmonics = result[0]
+    list_harmonics = result[1]
+    list_type_func = result[2][0]
+    for i in list_type_func:
+        print(i)
+    list_values_func = result[2][1]
+    clas_c = Sound(list_number_harmonics,list_harmonics,list_type_func,list_values_func)
     list_org = organization(args.s)
     list_1 = list_org[0]
     list_2 = list_org[1]
@@ -54,7 +58,7 @@ def menu(args):
     create_wave_file(frames,args.a)
     return "Fin"
 
-"""python menu.py --frequency=44100 --score=debussy_note.txt --audio=au.wav"""
+"""python menu.py -f 44100 -i piano.txt -s debussy_note.txt -a au.wav"""
 
 if __name__=="__main__":
     main()

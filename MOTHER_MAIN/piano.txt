@@ -1,10 +1,8 @@
 4
 1 1
-2 0.72727272 #/el armonico 1º tendrá esta frecuencia, 0,72727272
+2 0.72727272
 3 0.31818181
 4 0.090909
 LINEAR 0.02
 CONSTANT
 INVLINEAR 0.06
-#Los ultimos tres caracterizan un envolvente 
-#Todo estó caracteriza el instrumento

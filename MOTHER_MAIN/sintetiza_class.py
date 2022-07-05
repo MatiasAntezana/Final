@@ -1,5 +1,5 @@
 #from matplotlib import table
-from atack_sus_decayed import recor,m_t,funcion
+from atack_sus_decayed import Atack_sust_decay
 import sounddevice as sd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -13,13 +13,6 @@ from notes import dic_notes
 class Sound:
     """
     A class to represent the synthesizer.
-
-    ---
-
-    Attributes
-    ----------
-    Ninguno
-
     Methods
     -------
 
@@ -27,13 +20,17 @@ class Sound:
         Synthesizes the signal of the musical note to later transfer it to a wap file.
         
     """
-    def __init__(self):
+    def __init__(self,list_number_harmonics,list_harmonics,list_type_func,list_values_func):
         """
         Constructor of the sound class, the synthesizer
         
         """
         self.dic_notes = dic_notes
         self.data = None
+        self.list_number_harmonics = list_number_harmonics
+        self.list_harmonics = list_harmonics
+        self.list_type_func = list_type_func
+        self.list_values_func = list_values_func
         """Le paso el diccionario"""
 
     def create_data (self,frequency,time,t0,framerate:int):
@@ -53,43 +50,15 @@ class Sound:
         """
         td = 0.06
         t = np.linspace(0,time +td ,int((time+td)*framerate))
-        lista_2 = [0,1,0.72727272,0.31818181,0.090909]
-        i = 0
-        for e in range (1,5):
-            i = i + e * np.sin(2*np.pi * frequency * lista_2[e] * t)
-        #resultado = combo(wave,t,time,t0)
-        lista = []
-        conta = 0
+        lista_2 = [0] + self.list_harmonics
+        wave_note = 0
+        #print(lista_2)
+        for e in range (1,len(self.list_number_harmonics)+1):
+            wave_note = wave_note + e * np.sin(2*np.pi * frequency * lista_2[e] * t)
         ta = 0.02
-        con_mt_no = 0
-        con_mt_si = 0
-        result = funcion(t,i,ta,td)
-        #print(len(t))
-        """
-        for t_v in t:
-            wav = recor(wave,conta)
-            mt = m_t(t_v,ta,td)
-            if mt == 0:
-                con_mt_si +=1
-            elif mt != 0:
-                con_mt_no +=1
-            A = 5 #instrumento
-            at = A * wav * mt
-            lista.append(at)
-            conta += 1
-        """
-        #print("Lo que no son ceros son: ",con_mt_no,"y los que si son: ",con_mt_si)
+        note_modified = Atack_sust_decay(self.list_type_func,self.list_values_func,ta,td)
+        result = note_modified.main_method(t,wave_note)
         self.data = result
-
-        #print(self.data)
-        """
-        Tengo que crear 2 funciones nuevas con el sostenido y el dacaeimiento para que me devuelvan una lista con los valores aplicandoles la función correspondiente de ataque, sostenido y bajada.
-        """
-        """
-        Concateno las listas del ataque, caida y sonido y a eso lo multiplico por el wave.
-        Luego eso es lo que tengo que devolver.
-        NOTA: Fijate si no funciona, probar con un for.
-        """
         """
         plt.plot(self.data[:1000], color = 'k', label = 'Frecuencia de notas hz')
         plt.title('Simulacro de notas')
