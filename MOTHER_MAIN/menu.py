@@ -12,7 +12,7 @@ def main ():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument("-f",type=int,default=48000,help="Choose a sample rate")
-    parser.add_argument("-i",default="piano.txt",help="Choose a sample rate")
+    parser.add_argument("-i",default="piano.txt",help="Choose an instrument")
     parser.add_argument("-s",default="debussy_note.txt",help="Write a sheet music")
     parser.add_argument("-a",default="audio_new.wav",help="Type a name for the wave file")
     args = parser.parse_args()
