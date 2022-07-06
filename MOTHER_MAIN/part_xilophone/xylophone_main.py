@@ -1,4 +1,4 @@
-from client import create_notes_for_xylophone,filter
+from client_main import create_notes_for_xylophone,filter
 import argparse
 import sys
 from read_score import organization
