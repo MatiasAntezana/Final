@@ -1,8 +1,0 @@
-mido
-pyserial
-colorama
-mypy
-flake8
-yapf
-isort
-
