@@ -1,7 +1,7 @@
 #/usr/bin/env python
 
-from xylophone.client import XyloClient
-from xylophone.xylo import XyloNote
+from part_xilophone.client import XyloClient
+from part_xilophone.xylo import XyloNote
 
 def filter(notes_times,ip_xylophone:str):
     """
