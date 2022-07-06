@@ -78,6 +78,10 @@ class Atack_sust_decay:
         elif condition == "d":
             t_sd = self.list_func[2][1]
         array_decay = []
+
+        if t_sd == 0:
+            t_sd = 1
+
         for i in t:
             ft = 1 - i / t_sd
             if ft < 0:
@@ -95,6 +99,8 @@ class Atack_sust_decay:
         Return:
             ft:array -> Sustained value
         """
+        if len(t) == 0:
+            raise ValueError("Length of the t must not be 0")
         a = self.list_func[1][1]
         f = self.list_func[1][2]
         ft = 1 * a * np.sin(f * t)
@@ -127,6 +133,8 @@ class Atack_sust_decay:
             t_sd = self.list_func[1][1]
         elif condition == "d":
             t_sd = self.list_func[2][1]
+        if t_sd == 0:
+            raise ValueError("t_sd must not be 0")
         ft = 2.71 ** ((-5 * t)/t_sd)
         return ft
 
@@ -144,6 +152,8 @@ class Atack_sust_decay:
             t_sd = self.list_func[1][1]
         elif condition == "d":
             t_sd = self.list_func[2][1]
+        if t_sd == 0:
+            raise ValueError('t_sd must not be 0')
         ft = np.cos((np.pi * t) / (2 * t_sd))
         return ft
 
@@ -174,6 +184,8 @@ class Atack_sust_decay:
             t_sd = self.list_func[1][1]
         elif condition == "d":
             t_sd = self.list_func[2][1]
+        if t_sd == 0:
+            t_sd == 1
         ft = (1 + np.cos((np.pi * t) / t_sd)) / 2
         return ft 
 
