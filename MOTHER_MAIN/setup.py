@@ -8,7 +8,7 @@ setup(
     license='MIT',
     packages=find_packages(
         where='.',
-        include=['xylophone*'],
+        include=['part_xilophone*'],
     ),
 )
 
