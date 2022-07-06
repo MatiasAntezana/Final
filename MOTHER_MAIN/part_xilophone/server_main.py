@@ -1,4 +1,4 @@
-from xylophone.server.server import MockXyloServer
+from part_xilophone.server.server import MockXyloServer
 
 xylophone = MockXyloServer(host='localhost', port=8080)
 
