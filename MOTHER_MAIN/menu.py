@@ -1,14 +1,10 @@
 #%%
-import numpy as np
-#hará que me reproduzca dos notas al mismo tiempo
-import argparse #Para poder ejecutar el código en consola 
-import sys #Para que pueda salir del sistema
+import argparse
+import sys
 from sintetiza_class import Sound
 from read_score import organization
 from wave_creator import create_wave_file
-from FOLDER_MIDI.prueba import hola
 from read_instrument import read_instru
-print(hola())
 
 def main ():
     """
@@ -23,26 +19,24 @@ def main ():
     sys.stdout.write(str(menu(args)))
 
 def menu(args):
-    """ # Falta instrumento
+    """
     Main function with which the program will run, including the synthesizer.
     Parameters:
     ----------
-        frequency:int -> Sampling frequency
-        instrument -> Instrumento #falta
+        args.f:int -> Sampling frequency
+        args.i:txt -> Instrument file name
+        args.s:txt -> Score file name
+        args.a:wav -> Name of the wave file to be generated
 
     """
     result = read_instru(args.i)
-    #print(result)
     list_number_harmonics = result[0]
     list_harmonics = result[1]
-    list_type_func = result[2][0]
-    for i in list_type_func:
-        print(i)
-    list_values_func = result[2][1]
-    clas_c = Sound(list_number_harmonics,list_harmonics,list_type_func,list_values_func)
+    list_func = result[2]
+    clas_c = Sound(list_number_harmonics,list_harmonics,list_func)
     list_org = organization(args.s)
     list_1 = list_org[0]
-    list_2 = list_org[1]
+    #list_2 = list_org[1]
     list_3 = list_org[2]
     notes = []
     for i in list_1:
@@ -51,14 +45,10 @@ def menu(args):
     frames = []
     num = 0
     for note in notes:
-        #sonido = clas_c.play(note,1,44100) #Hara que suene el sonido
-        onda = clas_c.create_data(note,float(list_2[num]),float(list_3[num]),args.f)
+        onda = clas_c.create_data(note,float(list_3[num]),args.f)
         num += 1
         frames.append(onda)
     create_wave_file(frames,args.a)
-    return "Fin"
-
-"""python menu.py -f 44100 -i piano.txt -s debussy_note.txt -a au.wav"""
-
+    return "Finish"
 if __name__=="__main__":
     main()
