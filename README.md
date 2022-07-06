@@ -15,7 +15,7 @@ $ git clone https://github.com/MatiasAntezana/Final.git
 
 2. Get in the local repository.
    
-   cd/path/to/final      # ver si es la ruta correcta
+   cd/path/to/final   
 
 3. Install the dependencies
    
@@ -24,10 +24,6 @@ $ git clone https://github.com/MatiasAntezana/Final.git
 4. Install it setup with pip
    
    pip install .
-
-   Also you can use:
-   
-   python setup.py install
 
 --------------------------------
 
@@ -54,7 +50,7 @@ To run the program you need to run the following command:
 
 ## Tests
 
-To run the python tests from the packgage you can use the following command
+To run the python tests from the packgage you can use the following command:
 
-nosetests (corre todos los tests) 
+   python -m unittest discover
 

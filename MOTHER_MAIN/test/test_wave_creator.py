@@ -1,64 +1,46 @@
+
 import unittest
 import numpy as np
-
+from scipy.io.wavfile import write
 
 from wave_creator import create_wave_file
 
+
 class Test_create_wave_file(unittest.TestCase):
 
-    def test_array_type(self):
-        """ 
-        Test if the frames are an array type object
-        """
-        frames=np.array([1,2,3,4,5,6,7,8])
-        self.assertRaises(TypeError, create_wave_file, frames)
+    """
+    Class to test the create_wave_file function from wave_creator.py.
 
-    def test_frames__type(self):
-        """
-        Test if the frames are a dict type object. 
-        """
-        frames= {1:2,3:4,5:5,6:6,7:8}
-        self.assertRaises(TypeError, create_wave_file,frames)
+    ...
+    
+    Atributtes
+    ----------
+        none
+    
+    Methods
+    -------
 
-    def test_frames_type2(self):
-        """
-        Test if the frames are an int type object.
-        """
-        frames=123
-        self.assertRaises(TypeError, create_wave_file, frames)
-
-    def test_frames_type3(self):
-        """
-         Test if the frames are an string type object.
-        """
-        frames="python"
-        self.assertRaises(TypeError, create_wave_file, frames)
+        test_create_wav_file():
+            Test if the wav file was created correctly.
 
 
-    def test_sampling_rate(self):
-        """
-        Test sampling rate are 0 or a negative number
-        """
-        sr=0
-        if sr<=0:
-            self.assertRaises(ValueError, create_wave_file,sr)
-        else:
-            pass
 
-    def test_sampling_rate_type(self):
-        """ 
-        Test sampling rate type are a string type object
-        """
-        sr="synthesizer"
-        self.assertRaises(TypeError, create_wave_file, sr)
+    """
 
-    def test_sampling_rate_type2(self):
+    def test_create_wav_File(self):
         """
-        Test sampling rate type 2 are a none type object
-
+        Test if the wav file was created correctly.
         """
-        sr=type(None)
-        self.assertRaises(TypeError, create_wave_file, sr)
+        samplerate = 44100 
+        fs = 100
+        sound = np.linspace(0., 1., samplerate)
+        amplitude = np.iinfo(np.int16).max
+        data = amplitude * np.sin(2. * np.pi * fs * sound)
+        audio="example.wav"
+        try:
+            write(audio, samplerate, data.astype(np.int16))
+        except:
+            self.assertRaises(ValueError, create_wave_file)
 
         
 if __name__ == '__main__':
