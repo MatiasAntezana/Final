@@ -3,8 +3,8 @@
 import socket
 from typing import List
 
-from ..xylo.note import XyloNote
-from ..util.logger import logger
+from note import XyloNote
+from logger import logger
 
 
 class XyloClient:

@@ -3,8 +3,8 @@
 from typing import Tuple
 from socketserver import BaseRequestHandler, TCPServer
 
-from .handler import TCPHandler
-from ..xylo.phone import BaseXylo, Xylo, MockXylo
+from handler import TCPHandler
+from phone import BaseXylo, Xylo, MockXylo
 
 
 class CustomTCPServer(TCPServer):

@@ -14,7 +14,7 @@ list_new = organization(score_music)
 list_note = list_new[0]
 list_time0 = list_new[1]
 list_final = []
-for i in range(0,len(list_note)+1):
+for i in range(0,len(list_note)):
     list_emply = []
     note = list_note[i]
     time = list_time0[i]

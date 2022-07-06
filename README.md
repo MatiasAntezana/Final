@@ -25,6 +25,18 @@ $ git clone https://github.com/MatiasAntezana/Final.git
    
    pip install .
 
+5. Get in the local repository.
+
+   cd/path/to/final/MOTHER_MAIN
+
+6. Install the dependencies
+   
+   pip install -r requirements.txt
+
+7. Install it setup with pip
+   
+   pip install .
+
 --------------------------------
 
 ## Running the program

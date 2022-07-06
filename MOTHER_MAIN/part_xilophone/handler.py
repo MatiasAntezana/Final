@@ -1,7 +1,7 @@
 import json
 
 from socketserver import BaseRequestHandler
-from ..xylo.note import XyloNote
+from note import XyloNote
 
 class TCPHandler(BaseRequestHandler):
 

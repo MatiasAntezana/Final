@@ -3,8 +3,8 @@ import datetime
 from serial import Serial
 from serial.serialutil import SerialException
 
-from ..xylo.note import XyloNote
-from ..util.logger import logger
+from note import XyloNote
+from logger import logger
 
 
 from abc import abstractmethod
