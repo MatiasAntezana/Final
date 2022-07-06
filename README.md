@@ -15,7 +15,7 @@ $ git clone https://github.com/MatiasAntezana/Final.git
 
 2. Get in the local repository.
    
-   cd/path/to/final      # ver si es la ruta correcta
+   cd/path/to/final   
 
 3. Install the dependencies
    
@@ -24,10 +24,6 @@ $ git clone https://github.com/MatiasAntezana/Final.git
 4. Install it setup with pip
    
    pip install .
-
-   Also you can use:
-   
-   python setup.py install
 
 --------------------------------
 
@@ -45,16 +41,16 @@ To run the program you need to run the following command:
 
 --You will see the arguments that are required
 
-3. Choose frequency, score, and the name for the WAV file.
+3. Choose frequency, instrument, score, and the name for the WAV file.
    
-   python menu.py --frequency=<frequency> --score=<note.txt> --audio=<audio.wav>
+   python menu.py --f=<frequency> --i=<instrument.txt> --s=<note.txt> --a=<audio_test.wav>
 
 
 --------------------------------
 
 ## Tests
 
-To run the python tests from the packgage you can use the following command
+To run the python tests from the packgage you can use the following command:
 
-nosetests (corre todos los tests) 
+   python -m unittest discover
 
