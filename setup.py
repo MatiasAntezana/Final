@@ -1,12 +1,13 @@
 
 from setuptools import setup, find_packages
 
+
 setup(
-    nombre = "Final" ,
+    name = "MOTHER_MAIN" ,
     version = "1.0.0" ,
     packages=find_packages(
         where=".",
-        include=[ "Final*"],
+        include=[ "MOTHER_MAIN","xylophone"],
     )
 )
 
