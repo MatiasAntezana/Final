@@ -7,6 +7,49 @@ from atack_sus_decayed import *
 
 
 class test_attack_sus_decayed(unittest.TestCase):
+    """
+    Class test for Test class from test_attack_sus_decayed.py
+
+    ...
+
+    Atributtes
+    ----------
+        None
+    
+    Methods
+    -------
+            test_linear()
+
+            test_constant()
+
+            test_invlinear()
+
+            test_sin()
+
+            test_exp()
+
+            test_invexp()
+
+            test_quartcos()
+
+            test_quartsin()
+            
+            test_halfcos()
+
+            test_halfsin()
+
+            test_loge()
+
+            test_pulses()
+
+            test_minor_values()
+
+            test_medium_values()
+
+            test_bigger_values()
+
+
+    """
     
     def test_linear(self):
         """
@@ -221,16 +264,6 @@ class test_attack_sus_decayed(unittest.TestCase):
             
 
 
-
-
-
-
-
-
-
-
-
-                
 
 
 if __name__ == "__main__":

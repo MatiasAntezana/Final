@@ -3,11 +3,15 @@ from scipy.io import wavfile
 
 def create_wave_file(sound,audio):
     """
-    Crea el archivo wave con la señal de la nota.
-    Parametros:
-    ----------
-        sound -> Lista de vectores con los sonidos de las teclas
-        audio -> Nombre del archivo wave
+    Function that creates the WAV file with the signal of the notes.
+
+    --------
+    Parameters:
+            sound (array): array with the sounds 
+            audio (str): name of the file
+
+    Returns:
+            Wave filename
         
     """
     frames = np.concatenate(sound)
