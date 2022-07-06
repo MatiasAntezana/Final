@@ -32,18 +32,19 @@ class Sound:
 
     def create_data (self,frequency,time,framerate:int):
         """
-        Synthesizes the note signal by taking the frequency of the note, the duration of the note, the instant in time the note is played, and the sample rate.
-        
-        Arguments:
+         Synthesizes the note signal by taking the frequency of the note, 
+        the duration of the note, the instant in time the note is played, and the sample rate.
+
+        Parameters:
         ----------
-            frequency -> Frecuencia de la nota
-            time -> Tiempo de duración de la nota
-            t0 -> El instante de tiempo en el que se reproduce la nota
-            framerate -> La frecuencia de muestreo
+                frequency: frequency of the note
+                time: duration of each note
+                t0: initial time that the note starts sound
+                framerate: sampling rate
 
         Return:
-            self.data -> Devuelve la nota en forma de lista
-            framerate=44100
+                data: list of notes
+                framerate(int): default <44100>
         """
         td = 0.06
         t = np.linspace(0,time +td ,int((time+td)*framerate))

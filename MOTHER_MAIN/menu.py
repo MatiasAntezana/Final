@@ -9,6 +9,12 @@ from read_instrument import read_instru
 def main ():
     """
     Function that recreates the argparse to be able to execute the program through the system console.
+
+
+    -----
+    Parameters:
+	    ArgumentParser(Class): Used the argparse module to elect arguments
+	from the terminal.
     """
     parser = argparse.ArgumentParser()
     parser.add_argument("-f",type=int,default=48000,help="Choose a sample rate")

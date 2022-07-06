@@ -126,7 +126,8 @@ def harmonics_separator (number,mem):
 
 def read_instru (filename):
     """
-    Función que leé el archivo del instrumento.
+    Function to read the instrumen file.txt 
+  
     Parametros:
     ----------
         filename -> Nombre del archivo del instrumento
