@@ -53,13 +53,6 @@ class Sintetizaclass(unittest.TestCase):
         self.assertRaises(TypeError,Sound.create_data,lista)
 
 
-
-    def test_play(self):
-        pass
-
-    def test_play_chord(self):
-        pass
-
 if __name__ == '__main__':
     unittest.main()
     
