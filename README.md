@@ -43,7 +43,7 @@ To run the program you need to run the following command:
 
 3. Choose frequency, instrument, score, and the name for the WAV file.
    
-   python menu.py --f=<frequency> --i=<instrument.txt> --s=<note.txt> --a=<audio_test.wav>
+   python menu.py --f=<frequency.> --i=<instrument.txt> --s=<note.txt> --a=<audio_test.wav>
 
 
 --------------------------------
