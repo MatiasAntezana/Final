@@ -16,5 +16,5 @@ def create_wave_file(sound,audio):
     """
     frames = np.concatenate(sound)
     #Concatena los vectores
-    sr = 44100 #Este dependerá del instrumento o no? ¿es fijo para todos?
+    sr = 44100 
     wavfile.write(audio,sr,frames)

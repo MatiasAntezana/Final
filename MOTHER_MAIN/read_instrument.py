@@ -47,11 +47,13 @@ def separate_tuples_values_for2 (element):
 
 def atack_sust_decay_separator(number,mem):
     """
-    Función que separará el ataque, sostenido o decaimiento, dependiendo el que haya
-    Parametros:
+
+    Function that split the attack, sustain or decay, depending what is the function to be used.
+
+    Parameters:
     ----------
-        number:int -> Numero de la cantidad de armonicos que hay (especificado en la primera linea del archivo del piano)
-        mem -> Variable en donde se guarda el archivo abierto
+        number:int ->Number of armonics (read at the first file from the file)
+        mem -> Variable where store the open file
     Return:
         list_func:list -> List of tuples with the types of attacks, sustains and decays
     """
@@ -94,11 +96,12 @@ def atack_sust_decay_separator(number,mem):
 
 def harmonics_separator (number,mem):
     """
-    Función que separa el numero de los armonicos.
-    Parametros:
+    Function that split the armonics numbers. 
+
+    Parameters:
     ----------
-        number:int -> Numero de la cantidad de armonicos que hay (especificado en la primera linea del archivo del piano)
-        mem -> Variable en donde se guarda el archivo abierto
+        number:int ->Number of armonics (read at the first file from the file)
+        mem -> Variable where store the open file
     
     Return:
         list_numbers,list_harmonics,result2 -> Tuple of lists of the numbers next to the harmonics, of the harmonics and of the types of attack, sustain and decay
@@ -126,11 +129,11 @@ def harmonics_separator (number,mem):
 
 def read_instru (filename):
     """
-    Function to read the instrumen file.txt 
+    Function to read the instrument file.txt 
   
-    Parametros:
+    Parameters:
     ----------
-        filename -> Nombre del archivo del instrumento
+        filename -> File name of the instument
     
     Return:
         result:tuple -> The result of calling the harmonics_separator function (tuple of lists)
