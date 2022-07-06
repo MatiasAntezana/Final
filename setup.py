@@ -7,7 +7,7 @@ setup(
     version = "1.0.0" ,
     packages=find_packages(
         where=".",
-        include=[ "MOTHER_MAIN","xylophone"],
+        include=[],
     )
 )
 
